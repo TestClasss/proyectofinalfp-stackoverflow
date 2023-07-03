@@ -1,9 +1,10 @@
-#include "lib.hpp"
-int main()
-{
-    string date = Crear_fecha();
-    Limpiar();
-    Slogan();
-    cout << endl;
-    MenuPrincipal();
+#include <iostream>
+
+using namespace std;
+
+int main(){
+
+
+
+    return 0;
 }
