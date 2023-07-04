@@ -21,6 +21,9 @@ void ImprimirContenidoArchivo(string nombreArchivo);
 void AgregandoPlacasArchivo(string date);
 void ParqueosDisponiblesYnoDisponibles(string nombreArchivo);
 
+void ParqueosDisponibles(string nombreArchivo);
+void frecuentes(string placas, string nombreArchivo);
+
 struct Parqueo
 {
     string nombreEspacios;
@@ -523,4 +526,12 @@ void ImprimirContenidoArchivo(string nombreArchivo)
     {
         cout << "Error al abrir el archivo" << endl;
     }
+}
+void ParqueosDisponibles(string nombreArchivo)
+{
+
+}
+void frecuentes(string placas, string nombreArchivo)
+{
+    
 }
