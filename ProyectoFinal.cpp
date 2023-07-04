@@ -12,6 +12,7 @@ void Limpiar();
 void Slogan();
 void Tiquete();
 void ImprimirCantidadTipoVehiculo(string nombreArchivo);
+string Crear_Fecha();
 struct Parqueo
 {
     string nombreEspacios;
@@ -25,6 +26,7 @@ struct Vehiculo
 
 int main(){
 
+    string date = Crear_Fecha();
     Limpiar();
     Slogan();
     cout << endl;
@@ -340,4 +342,13 @@ void Tiquete()
 void ImprimirCantidadTipoVehiculo(string nombreArchivo)
 {
 
+}
+string Crear_Fecha()
+{
+    time_t now = time(0);
+    tm *time = localtime(&now);
+
+    string fecha = to_string(time->tm_mday) + "-" + to_string(time->tm_mon + 1) + "-" + to_string(time->tm_year + 1900) + ".txt";
+
+    return fecha;
 }
