@@ -206,6 +206,9 @@ void MenuAdministrador()
         cout << "Imprimir contenido de un archivo"<<endl;
         cout << "Que nombre de archivo desea imprimir:";
         cin >> archivo;
+        //Llamado de la funcion imprimir un archivo especifico
+        ImprimirContenidoArchivo(archivo);
+        
         cout << "\nDesea continuar o desea salir" << endl;
         cout << "Seleccione 1 para continuar y 0 para salir:";
         cin >> opcion1;
@@ -233,6 +236,7 @@ void MenuUsuario()
     int opcion;
     int opcion1;
     string placa;
+    string nombreArchivo = Crear_Fecha();
 
     cout << endl;
     cout << " 1) Tiquete.\n 2) Parqueos disponibles.\n 3) Busqueda por numero de placa.\n 4) Regresar al menu principal.\n 5) Salir.\n";
@@ -285,6 +289,8 @@ void MenuUsuario()
         // Buscar el numero de placa
         cout << "Ingrese el numero de placa:\n";
         cin >> placa;
+        //Llamado de la funcion comprobar 
+        cout << Comprobar(placa, nombreArchivo);
 
         cout << "\n\nDesea continuar o desea salir" << endl;
         cout << "Seleccione 1 para continuar y 0 para salir:";
@@ -465,4 +471,56 @@ void ParqueosDisponiblesYnoDisponibles(string nombreArchivo)
     cout << "El numero de parqueos no disponibles para carro es de: " << cantidadCarros << endl;
     cout << "El numero de parqueos no disponibles para moto es de: " << cantidadMotos << endl;
     cout << "El numero de parqueos no disponibles para discapacitado/embarazada es de: " << cantidadDis << endl;
+}
+
+//Definicion de la funcion de comprobar placas 
+bool Comprobar(string placa, string nombreArchivo)
+{
+    ifstream archivoLectura(nombreArchivo, ios::in);
+    string placas;
+
+    archivoLectura >> placas;
+    // Leer hasta llegar al final
+    while (!archivoLectura.eof())
+    {
+        archivoLectura >> placas;
+        if (placas == placa)
+        {
+            cout << "Placa ya existe";
+            archivoLectura.close();
+            return false;
+        }
+        
+        archivoLectura >> placas;
+    }
+    archivoLectura.close();
+
+    cout << "No existe la placa";
+    return true;
+}
+
+//Definicion de la funcion de imprimir el contenido de un archivo especifico
+void ImprimirContenidoArchivo(string nombreArchivo)
+{
+    Limpiar();
+
+    // Crear una variable para la salida del texto
+    string leer;
+    ifstream ArchivoPlacas;
+    ArchivoPlacas.open(nombreArchivo, ios::in);
+
+    if (ArchivoPlacas.is_open())
+    {
+        while (getline(ArchivoPlacas, leer))
+        {
+            // Salida
+            cout << leer << endl;
+        }
+        // Cerrar conexion
+        ArchivoPlacas.close();
+    }
+    else
+    {
+        cout << "Error al abrir el archivo" << endl;
+    }
 }
