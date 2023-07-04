@@ -270,6 +270,7 @@ void MenuUsuario()
 
     case 2:
         cout << "Tipo de parqueo disponible\n";
+        ParqueosDisponibles(nombreArchivo);
         cout << "\nDesea continuar o desea salir" << endl;
         cout << "Seleccione 1 para continuar y 0 para salir:";
         cin >> opcion1;
@@ -529,9 +530,42 @@ void ImprimirContenidoArchivo(string nombreArchivo)
 }
 void ParqueosDisponibles(string nombreArchivo)
 {
+    Limpiar();
 
+    // Crear una variable para la salida del texto
+    string linea;
+    ifstream archivoLectura(nombreArchivo, ios::in);
+    int cantidadCarros = 0;
+    int cantidadMotos = 0;
+    int cantidadDis = 0;
+    int parqueDisponible = 0;
+    int parqueoNoDisponible = 0;
+    int totalParqueoCarro = 30;
+    int totalParqueoMoto = 15;
+    int totalParqueoDiscapacitado = 5;
+
+    while (getline(archivoLectura, linea))
+    {
+
+        if (linea.size() == 13 || linea.size() == 14)
+        {
+            cantidadCarros++;
+        }
+        else if (linea.size() == 11 || linea.size() == 12)
+        {
+            cantidadMotos++;
+        }
+        else if (linea.size() == 9)
+        {
+            cantidadDis++;
+        }
+    }
+    archivoLectura.close();
+    cout << "El numero de parqueos disponibles para carro es de: " << totalParqueoCarro - cantidadCarros << endl;
+    cout << "El numero de parqueos disponibles para moto es de: " << totalParqueoMoto - cantidadMotos << endl;
+    cout << "El numero de parqueos disponibles para discapacitado/embarazada es de: " << totalParqueoDiscapacitado - cantidadDis << endl;
 }
 void frecuentes(string placas, string nombreArchivo)
 {
-    
+
 }
