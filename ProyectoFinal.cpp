@@ -173,6 +173,7 @@ void MenuAdministrador()
         }
         break;
         case 5:
+        AgregandoPlacasArchivo(nombreArchivo);
         cout << "\nDesea continuar o desea salir" << endl;
         cout << "Seleccione 1 para continuar y 0 para salir:";
         cin >> opcion1;
@@ -423,5 +424,21 @@ void AgregandoPlacasArchivo(string date)
 }
 void ParqueosDisponiblesYnoDisponibles(string nombreArchivo)
 {
+    Limpiar();
+    // Crear una variable para la salida del texto
+    string linea;
+    ifstream archivoLectura(nombreArchivo, ios::in);
+    int cantidadCarros = 0;
+    int cantidadMotos = 0;
+    int cantidadDis = 0;
+    int parqueDisponible = 0;
+    int parqueoNoDisponible = 0;
+    int totalParqueoCarro = 30;
+    int totalParqueoMoto = 15;
+    int totalParqueoDiscapacitado = 5;
+    while (getline(archivoLectura, linea))
+    {
+        
+    }
 
 }
