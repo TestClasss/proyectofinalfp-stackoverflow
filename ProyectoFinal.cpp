@@ -388,9 +388,22 @@ string Crear_Fecha()
 }
 void AgregandoPlacasArchivo(string date)
 {
+    // Declaración de una variable tipo ofstream
+    ofstream ArchivoPlacas;
+    // Creando el archivo y aplicando los modos de apertura de escritura y añadir
+    ArchivoPlacas.open(date, ios::out | ios::app);
 
+    // Solicitando los datos en el arreglo de estructuras
+    for (int i = 0; i < 1; i++)
+    {
+        cin.ignore();
+        cout << "Ingrese la Placa ";
+        getline(cin, tipo[i].placa);
+        cout << "Ingrese el nombre del parqueo ";
+        getline(cin, tipo[i].espacios.nombreEspacios);
+    }
 }
 void ParqueosDisponiblesYnoDisponibles(string nombreArchivo)
 {
-    
+
 }
