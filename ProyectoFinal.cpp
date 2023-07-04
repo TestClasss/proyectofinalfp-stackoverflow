@@ -326,6 +326,16 @@ void Tiquete()
 
     // Calcular el total a pagar
     totalPagar = tiempoTranscurrido * precioHora;
+     // Imprimir factura
+    cout << "Factura" << endl;
+    cout << "*********************************" << endl;
+    cout << "* Numero de placa:  " << endl;
+    cout << "* " << numeroPlaca << " " << endl;
+    cout << "* Tiempo transcurrido: \n";
+    cout << "* " << tiempoTranscurrido << " horas"
+         << " " << endl;
+    cout << "* Total a pagar: $ " << totalPagar << " " << endl;
+    cout << "*********************************";
 }
 void ImprimirCantidadTipoVehiculo(string nombreArchivo)
 {
