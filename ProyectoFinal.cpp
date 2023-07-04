@@ -13,8 +13,10 @@ void Slogan();
 
 int main(){
 
-
-
+    Limpiar();
+    Slogan();
+    cout << endl;
+    MenuPrincipal();
     return 0;
 }
 void MenuPrincipal()
@@ -32,6 +34,7 @@ void MenuPrincipal()
     switch (opcion)
     {
     case 1:
+        Limpiar();
         cout << "Ingrese nombre de administrador:" << endl;
         cin >> nombre;
         cout << "Ingrese la clave:" << endl;
@@ -51,10 +54,12 @@ void MenuPrincipal()
         }
         break;
     case 2:
-    break;
-    case 3:
+        Limpiar();
     break;
     default:
+    Limpiar();
+    cout << "El sistema se esta apagando\n";
+    cin.ignore();
         break;
     }
 }
@@ -71,16 +76,20 @@ void MenuAdministrador()
     switch (opcion)
     {
     case 1:
+        Limpiar();
         cout << "Mostrar cantidad por tipo de vehículos parqueados\n";
         cout << "\nDesea continuar o desea salir" << endl;
         cout << "Seleccione 1 para continuar y 0 para salir:";
         cin >> opcion1;
         if (opcion1 == 1)
         {
+            Limpiar();
             MenuAdministrador();
         }
         else if (opcion1 == 0)
         {
+            Limpiar();
+            Slogan();
             cout << endl;
             MenuPrincipal();
         }
@@ -94,10 +103,13 @@ void MenuAdministrador()
         cin >> opcion1;
         if (opcion1 == 1)
         {
+            Limpiar();
             MenuAdministrador();
         }
         else if (opcion1 == 0)
         {
+            Limpiar();
+            Slogan();
             cout << endl;
             MenuPrincipal();
         }
@@ -114,6 +126,8 @@ void MenuAdministrador()
         }
         else if (opcion1 == 0)
         {
+            Limpiar();
+            Slogan();
             cout << endl;
             MenuPrincipal();
         }
@@ -129,10 +143,13 @@ void MenuAdministrador()
         cin >> opcion1;
         if (opcion1 == 1)
         {
+            Limpiar();
             MenuAdministrador();
         }
         else if (opcion1 == 0)
         {
+            Limpiar();
+            Slogan();
             cout << endl;
             MenuPrincipal();
         }
@@ -148,6 +165,8 @@ void MenuAdministrador()
         }
         else if (opcion1 == 0)
         {
+            Limpiar();
+            Slogan();
             cout << endl;
             MenuPrincipal();
         }
@@ -167,10 +186,13 @@ void MenuAdministrador()
         cin >> opcion1;
         if (opcion1 == 1)
         {
+            Limpiar();
             MenuAdministrador();
         }
         else if (opcion1 == 0)
         {
+            Limpiar();
+            Slogan();
             cout << endl;
             MenuPrincipal();
         }
@@ -201,10 +223,13 @@ void MenuUsuario()
         cin >> opcion1;
         if (opcion1 == 1)
         {
+            Limpiar();
             MenuUsuario();
         }
         else if (opcion1 == 0)
         {
+            Limpiar();
+            Slogan();
             cout << endl;
             MenuPrincipal();
         }
@@ -217,21 +242,60 @@ void MenuUsuario()
         cin >> opcion1;
         if (opcion1 == 1)
         {
+            Limpiar();
             MenuUsuario();
         }
         else if (opcion1 == 0)
         {
+            Limpiar();
+            Slogan();
             cout << endl;
             MenuPrincipal();
         }
+        break;
+        case 3:
+        Limpiar();
+        cout << "Buscar auto por numero de placa.\n";
+        // Buscar el numero de placa
+        cout << "Ingrese el numero de placa:\n";
+        cin >> placa;
+
+        cout << "\n\nDesea continuar o desea salir" << endl;
+        cout << "Seleccione 1 para continuar y 0 para salir:";
+        cin >> opcion1;
+        if (opcion1 == 1)
+        {
+            Limpiar();
+            MenuUsuario();
+        }
+        else if (opcion1 == 0)
+        {
+            Limpiar();
+            Slogan();
+            cout << endl;
+            MenuPrincipal();
+        }
+        break;
+    case 4:
+        Limpiar();
+        cout << "-------------------------------------";
+        cout << endl;
+        return MenuPrincipal();
+        break;
+    default:
+        Limpiar();
+        cout << "El Sistema se esta apagando\n";
+        cin.ignore();
         break;
     }
 }
 void Limpiar()
 {
-
+    system("cls");
 }
 void Slogan()
 {
-
+    string slogan = "El mejor servicio para tu automovil";
+    cout << slogan;
+    cout << endl;
 }
