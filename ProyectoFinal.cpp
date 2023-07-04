@@ -10,6 +10,18 @@ void MenuAdministrador();
 void MenuUsuario();
 void Limpiar();
 void Slogan();
+void Tiquete();
+void ImprimirCantidadTipoVehiculo(string nombreArchivo);
+struct Parqueo
+{
+    string nombreEspacios;
+};
+struct Vehiculo
+{
+
+    string placa;
+    struct Parqueo espacios;
+} tipo[50];
 
 int main(){
 
@@ -298,4 +310,12 @@ void Slogan()
     string slogan = "El mejor servicio para tu automovil";
     cout << slogan;
     cout << endl;
+}
+void Tiquete()
+{
+
+}
+void ImprimirCantidadTipoVehiculo(string nombreArchivo)
+{
+    
 }
