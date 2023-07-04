@@ -466,3 +466,29 @@ void ParqueosDisponiblesYnoDisponibles(string nombreArchivo)
     cout << "El numero de parqueos no disponibles para moto es de: " << cantidadMotos << endl;
     cout << "El numero de parqueos no disponibles para discapacitado/embarazada es de: " << cantidadDis << endl;
 }
+
+//Definicion de la funcion de comprobar placas 
+bool Comprobar(string placa, string nombreArchivo)
+{
+    ifstream archivoLectura(nombreArchivo, ios::in);
+    string placas;
+
+    archivoLectura >> placas;
+    // Leer hasta llegar al final
+    while (!archivoLectura.eof())
+    {
+        archivoLectura >> placas;
+        if (placas == placa)
+        {
+            cout << "Placa ya existe";
+            archivoLectura.close();
+            return false;
+        }
+        
+        archivoLectura >> placas;
+    }
+    archivoLectura.close();
+
+    cout << "No existe la placa";
+    return true;
+}
