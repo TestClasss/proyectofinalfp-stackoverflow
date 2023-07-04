@@ -206,6 +206,9 @@ void MenuAdministrador()
         cout << "Imprimir contenido de un archivo"<<endl;
         cout << "Que nombre de archivo desea imprimir:";
         cin >> archivo;
+        //Llamado de la funcion imprimir un archivo especifico
+        ImprimirContenidoArchivo(archivo);
+        
         cout << "\nDesea continuar o desea salir" << endl;
         cout << "Seleccione 1 para continuar y 0 para salir:";
         cin >> opcion1;
@@ -288,7 +291,7 @@ void MenuUsuario()
         cin >> placa;
         //Llamado de la funcion comprobar 
         cout << Comprobar(placa, nombreArchivo);
-        
+
         cout << "\n\nDesea continuar o desea salir" << endl;
         cout << "Seleccione 1 para continuar y 0 para salir:";
         cin >> opcion1;
