@@ -135,6 +135,7 @@ void MenuAdministrador()
 
     case 3:
         cout << "Cantidad de parqueos disponibles y no disponibles\n";
+        ParqueosDisponiblesYnoDisponibles(nombreArchivo);
         cout << "\nDesea continuar o desea salir" << endl;
         cout << "Seleccione 1 para continuar y 0 para salir:";
         cin >> opcion1;
@@ -438,7 +439,25 @@ void ParqueosDisponiblesYnoDisponibles(string nombreArchivo)
     int totalParqueoDiscapacitado = 5;
     while (getline(archivoLectura, linea))
     {
-        
+        if (linea.size() == 13 || linea.size() == 14)
+        {
+            cantidadCarros++;
+        }
+        else if (linea.size() == 11 || linea.size() == 12)
+        {
+            cantidadMotos++;
+        }
+        else if (linea.size() == 9)
+        {
+            cantidadDis++;
+        }
     }
-
+    archivoLectura.close();
+    cout << "El numero de parqueos disponibles para carro es de: " << totalParqueoCarro - cantidadCarros << endl;
+    cout << "El numero de parqueos disponibles para moto es de: " << totalParqueoMoto - cantidadMotos << endl;
+    cout << "El numero de parqueos disponibles para discapacitado/embarazada es de: " << totalParqueoDiscapacitado - cantidadDis << endl
+         << endl;
+    cout << "El numero de parqueos no disponibles para carro es de: " << cantidadCarros << endl;
+    cout << "El numero de parqueos no disponibles para moto es de: " << cantidadMotos << endl;
+    cout << "El numero de parqueos no disponibles para discapacitado/embarazada es de: " << cantidadDis << endl;
 }
