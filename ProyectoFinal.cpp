@@ -18,6 +18,9 @@ string Crear_Fecha();
 bool Comprobar(string placa, string nombreArchivo);
 void ImprimirContenidoArchivo(string nombreArchivo);
 
+void AgregandoPlacasArchivo(string date);
+void ParqueosDisponiblesYnoDisponibles(string nombreArchivo);
+
 struct Parqueo
 {
     string nombreEspacios;
@@ -387,4 +390,43 @@ string Crear_Fecha()
     string fecha = to_string(time->tm_mday) + "-" + to_string(time->tm_mon + 1) + "-" + to_string(time->tm_year + 1900) + ".txt";
 
     return fecha;
+}
+void AgregandoPlacasArchivo(string date)
+{
+    // Declaración de una variable tipo ofstream
+    ofstream ArchivoPlacas;
+    // Creando el archivo y aplicando los modos de apertura de escritura y añadir
+    ArchivoPlacas.open(date, ios::out | ios::app);
+
+    // Solicitando los datos en el arreglo de estructuras
+    for (int i = 0; i < 1; i++)
+    {
+        cin.ignore();
+        cout << "Ingrese la Placa ";
+        getline(cin, tipo[i].placa);
+        cout << "Ingrese el nombre del parqueo ";
+        getline(cin, tipo[i].espacios.nombreEspacios);
+    }
+    // Comprobando si se crea el archivo
+    if (ArchivoPlacas.fail() == true)
+    {
+        cout << "Error al crear el archivo";
+        return;
+    }
+    else
+    {
+        // Agregando la informacion del struct al archivo.txt
+        //  ArchivoPersona.write((char *) &persona, sizeof(persona));
+        for (int i = 0; i < 1; i++)
+        {
+            ArchivoPlacas << tipo[i].espacios.nombreEspacios << " - " << tipo[i].placa << "\n";
+        }
+
+        // Cerrando la conexión
+        ArchivoPlacas.close();
+    }
+}
+void ParqueosDisponiblesYnoDisponibles(string nombreArchivo)
+{
+
 }
