@@ -313,9 +313,21 @@ void Slogan()
 }
 void Tiquete()
 {
+    string numeroPlaca;
+    int tiempoTranscurrido;
+    double precioHora = 1.00;
+    double totalPagar;
 
+    // Solicitar los datos al usuario
+    cout << "Ingrese el número de placa: ";
+    cin >> numeroPlaca;
+    cout << "Ingrese el tiempo transcurrido en horas: ";
+    cin >> tiempoTranscurrido;
+
+    // Calcular el total a pagar
+    totalPagar = tiempoTranscurrido * precioHora;
 }
 void ImprimirCantidadTipoVehiculo(string nombreArchivo)
 {
-    
+
 }
