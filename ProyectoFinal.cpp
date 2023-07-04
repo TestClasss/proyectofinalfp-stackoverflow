@@ -402,6 +402,24 @@ void AgregandoPlacasArchivo(string date)
         cout << "Ingrese el nombre del parqueo ";
         getline(cin, tipo[i].espacios.nombreEspacios);
     }
+    // Comprobando si se crea el archivo
+    if (ArchivoPlacas.fail() == true)
+    {
+        cout << "Error al crear el archivo";
+        return;
+    }
+    else
+    {
+        // Agregando la informacion del struct al archivo.txt
+        //  ArchivoPersona.write((char *) &persona, sizeof(persona));
+        for (int i = 0; i < 1; i++)
+        {
+            ArchivoPlacas << tipo[i].espacios.nombreEspacios << " - " << tipo[i].placa << "\n";
+        }
+
+        // Cerrando la conexión
+        ArchivoPlacas.close();
+    }
 }
 void ParqueosDisponiblesYnoDisponibles(string nombreArchivo)
 {
