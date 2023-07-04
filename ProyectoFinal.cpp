@@ -82,6 +82,7 @@ void MenuAdministrador()
     int opcion;
     int opcion1;
     string archivo;
+    string nombreArchivo=Crear_Fecha();
 
     cout << endl;
     cout << " 1) Mostrar cantidad por tipo de vehiculos parqueados.\n 2) Autos, motos y discapacitados/embarazadas frecuentes que ingresan al parqueo.\n 3) Cantidad de parqueos disponibles y no disponibles.\n 4) Bloquear parqueos especificos.\n 5) Registro.\n 6) Retornar al menu principal.\n 7)Mostrar Contenido de .txt.\n 8)Salir.\n";
@@ -92,6 +93,7 @@ void MenuAdministrador()
     case 1:
         Limpiar();
         cout << "Mostrar cantidad por tipo de vehículos parqueados\n";
+        ImprimirCantidadTipoVehiculo(nombreArchivo);
         cout << "\nDesea continuar o desea salir" << endl;
         cout << "Seleccione 1 para continuar y 0 para salir:";
         cin >> opcion1;
@@ -232,6 +234,7 @@ void MenuUsuario()
     {
     case 1:
         cout << "Su tiquete:\n";
+        Tiquete();
         cout << "\nDesea continuar o desea salir" << endl;
         cout << "Seleccione 1 para continuar y 0 para salir:";
         cin >> opcion1;
@@ -341,7 +344,36 @@ void Tiquete()
 }
 void ImprimirCantidadTipoVehiculo(string nombreArchivo)
 {
+    Limpiar();
 
+    // Crear una variable para la salida del texto
+    string linea;
+    ifstream archivoLectura(nombreArchivo, ios::in);
+    int cantidadCarros = 0;
+    int cantidadMotos = 0;
+    int cantidadDis = 0;
+
+    while (getline(archivoLectura, linea))
+    {
+
+        if (linea.size() == 13 || linea.size() == 14)
+        {
+
+            cantidadCarros++;
+        }
+        else if (linea.size() == 11 || linea.size() == 12)
+        {
+            cantidadMotos++;
+        }
+        else if (linea.size() == 9)
+        {
+            cantidadDis++;
+        }
+    }
+    archivoLectura.close();
+    cout << "El numero de carros parqueados es de: " << cantidadCarros << endl;
+    cout << "El numero de motos parqueadas es de: " << cantidadMotos << endl;
+    cout << "El numero de discapacitados parqueadas es de: " << cantidadDis << endl;
 }
 string Crear_Fecha()
 {
