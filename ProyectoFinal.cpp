@@ -206,6 +206,9 @@ void MenuAdministrador()
         cout << "Imprimir contenido de un archivo"<<endl;
         cout << "Que nombre de archivo desea imprimir:";
         cin >> archivo;
+        //Llamado de la funcion imprimir un archivo especifico
+        ImprimirContenidoArchivo(archivo);
+        
         cout << "\nDesea continuar o desea salir" << endl;
         cout << "Seleccione 1 para continuar y 0 para salir:";
         cin >> opcion1;
@@ -233,6 +236,7 @@ void MenuUsuario()
     int opcion;
     int opcion1;
     string placa;
+    string nombreArchivo = Crear_Fecha();
 
     cout << endl;
     cout << " 1) Tiquete.\n 2) Parqueos disponibles.\n 3) Busqueda por numero de placa.\n 4) Regresar al menu principal.\n 5) Salir.\n";
@@ -285,6 +289,8 @@ void MenuUsuario()
         // Buscar el numero de placa
         cout << "Ingrese el numero de placa:\n";
         cin >> placa;
+        //Llamado de la funcion comprobar 
+        cout << Comprobar(placa, nombreArchivo);
 
         cout << "\n\nDesea continuar o desea salir" << endl;
         cout << "Seleccione 1 para continuar y 0 para salir:";
