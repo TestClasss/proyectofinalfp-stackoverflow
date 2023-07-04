@@ -183,7 +183,49 @@ void MenuAdministrador()
 }
 void MenuUsuario()
 {
-    
+    int opcion;
+    int opcion1;
+    string placa;
+
+    cout << endl;
+    cout << " 1) Tiquete.\n 2) Parqueos disponibles.\n 3) Busqueda por numero de placa.\n 4) Regresar al menu principal.\n 5) Salir.\n";
+    cout << "Eliga su opcion:" << endl;
+    cin >> opcion;
+
+    switch (opcion)
+    {
+    case 1:
+        cout << "Su tiquete:\n";
+        cout << "\nDesea continuar o desea salir" << endl;
+        cout << "Seleccione 1 para continuar y 0 para salir:";
+        cin >> opcion1;
+        if (opcion1 == 1)
+        {
+            MenuUsuario();
+        }
+        else if (opcion1 == 0)
+        {
+            cout << endl;
+            MenuPrincipal();
+        }
+        break;
+
+    case 2:
+        cout << "Tipo de parqueo disponible\n";
+        cout << "\nDesea continuar o desea salir" << endl;
+        cout << "Seleccione 1 para continuar y 0 para salir:";
+        cin >> opcion1;
+        if (opcion1 == 1)
+        {
+            MenuUsuario();
+        }
+        else if (opcion1 == 0)
+        {
+            cout << endl;
+            MenuPrincipal();
+        }
+        break;
+    }
 }
 void Limpiar()
 {
