@@ -23,6 +23,7 @@ void ParqueosDisponiblesYnoDisponibles(string nombreArchivo);
 
 void ParqueosDisponibles(string nombreArchivo);
 void frecuentes(string placas, string nombreArchivo);
+void Bloqueados();
 
 struct Parqueo
 {
@@ -79,6 +80,7 @@ void MenuPrincipal()
         break;
     case 2:
         Limpiar();
+        MenuUsuario();
     break;
     default:
     Limpiar();
@@ -93,6 +95,7 @@ void MenuAdministrador()
     int opcion1;
     string archivo;
     string nombreArchivo=Crear_Fecha();
+    string placas;
 
     cout << endl;
     cout << " 1) Mostrar cantidad por tipo de vehiculos parqueados.\n 2) Autos, motos y discapacitados/embarazadas frecuentes que ingresan al parqueo.\n 3) Cantidad de parqueos disponibles y no disponibles.\n 4) Bloquear parqueos especificos.\n 5) Registro.\n 6) Retornar al menu principal.\n 7)Mostrar Contenido de .txt.\n 8)Salir.\n";
@@ -124,6 +127,7 @@ void MenuAdministrador()
     case 2:
         Limpiar();
         cout << "Autos, motos y discapacitados/embarazadas frecuentes que ingresan al parqueo\n";
+        frecuentes(placas,nombreArchivo);
         cout << "\nDesea continuar o desea salir" << endl;
         cout << "Seleccione 1 para continuar y 0 para salir:";
         cin >> opcion1;
@@ -163,8 +167,7 @@ void MenuAdministrador()
     case 4:
         Limpiar();
         cout << "Bloquear parqueos especificos\n";
-        // Hacer funcion
-        cout << "Los parqueos de discapacitado/embarazada esta bloqueados." << endl;
+        Bloqueados();
         cout << "\nDesea continuar o desea salir" << endl;
         cout << "Seleccione 1 para continuar y 0 para salir:";
         cin >> opcion1;
@@ -567,5 +570,20 @@ void ParqueosDisponibles(string nombreArchivo)
 }
 void frecuentes(string placas, string nombreArchivo)
 {
-
+    ifstream archivoLectura(nombreArchivo, ios::in);
+        // string placas;
+        string linea;
+        int frecuente = 0;
+        while (archivoLectura >> linea)
+        {
+            if (linea == placas)
+            {
+                frecuente++;
+            }
+        }
+        cout << frecuente << endl;
+}
+void Bloqueados()
+{
+    cout << "Los parqueos de discapacitado/embarazada esta bloqueados." << endl;
 }
