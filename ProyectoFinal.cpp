@@ -5,7 +5,7 @@
 
 using namespace std;
 
-//Declaracion de funciones
+//Declaracion de las funciones
 void MenuPrincipal();
 void MenuAdministrador();
 void MenuUsuario();
@@ -14,6 +14,7 @@ void Slogan();
 void Tiquete();
 void ImprimirCantidadTipoVehiculo(string nombreArchivo);
 string Crear_Fecha();
+//Declaracion funciones darlyn
 bool Comprobar(string placa, string nombreArchivo);
 void ImprimirContenidoArchivo(string nombreArchivo);
 
