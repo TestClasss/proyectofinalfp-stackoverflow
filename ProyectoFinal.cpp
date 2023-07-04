@@ -492,3 +492,29 @@ bool Comprobar(string placa, string nombreArchivo)
     cout << "No existe la placa";
     return true;
 }
+
+//Definicion de la funcion de imprimir el contenido de un archivo especifico
+void ImprimirContenidoArchivo(string nombreArchivo)
+{
+    Limpiar();
+
+    // Crear una variable para la salida del texto
+    string leer;
+    ifstream ArchivoPlacas;
+    ArchivoPlacas.open(nombreArchivo, ios::in);
+
+    if (ArchivoPlacas.is_open())
+    {
+        while (getline(ArchivoPlacas, leer))
+        {
+            // Salida
+            cout << leer << endl;
+        }
+        // Cerrar conexion
+        ArchivoPlacas.close();
+    }
+    else
+    {
+        cout << "Error al abrir el archivo" << endl;
+    }
+}
