@@ -62,6 +62,7 @@ void MenuAdministrador()
 {
     int opcion;
     int opcion1;
+    string archivo;
 
     cout << endl;
     cout << " 1) Mostrar cantidad por tipo de vehiculos parqueados.\n 2) Autos, motos y discapacitados/embarazadas frecuentes que ingresan al parqueo.\n 3) Cantidad de parqueos disponibles y no disponibles.\n 4) Bloquear parqueos especificos.\n 5) Registro.\n 6) Retornar al menu principal.\n 7)Mostrar Contenido de .txt.\n 8)Salir.\n";
@@ -135,6 +136,48 @@ void MenuAdministrador()
             cout << endl;
             MenuPrincipal();
         }
+        break;
+        case 5:
+        cout << "\nDesea continuar o desea salir" << endl;
+        cout << "Seleccione 1 para continuar y 0 para salir:";
+        cin >> opcion1;
+        if (opcion1 == 1)
+        {
+            Limpiar();
+            MenuAdministrador();
+        }
+        else if (opcion1 == 0)
+        {
+            cout << endl;
+            MenuPrincipal();
+        }
+        break;
+
+    case 6:
+        cout << "-------------------------------------\n";
+        cout << endl;
+        return MenuPrincipal();
+        break;
+    case 7:
+        cout << "Imprimir contenido de un archivo"<<endl;
+        cout << "Que nombre de archivo desea imprimir:";
+        cin >> archivo;
+        cout << "\nDesea continuar o desea salir" << endl;
+        cout << "Seleccione 1 para continuar y 0 para salir:";
+        cin >> opcion1;
+        if (opcion1 == 1)
+        {
+            MenuAdministrador();
+        }
+        else if (opcion1 == 0)
+        {
+            cout << endl;
+            MenuPrincipal();
+        }
+    break;
+    default:
+        cout << "El sistema se esta apagando\n";
+        cin.ignore();
         break;
     }
 }
