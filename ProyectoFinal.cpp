@@ -13,6 +13,8 @@ void Slogan();
 void Tiquete();
 void ImprimirCantidadTipoVehiculo(string nombreArchivo);
 string Crear_Fecha();
+void AgregandoPlacasArchivo(string date);
+void ParqueosDisponiblesYnoDisponibles(string nombreArchivo);
 struct Parqueo
 {
     string nombreEspacios;
@@ -383,4 +385,12 @@ string Crear_Fecha()
     string fecha = to_string(time->tm_mday) + "-" + to_string(time->tm_mon + 1) + "-" + to_string(time->tm_year + 1900) + ".txt";
 
     return fecha;
+}
+void AgregandoPlacasArchivo(string date)
+{
+
+}
+void ParqueosDisponiblesYnoDisponibles(string nombreArchivo)
+{
+    
 }
