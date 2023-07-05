@@ -92,6 +92,9 @@ void MenuAdministrador()
     case 2:
         Limpiar();
         cout << "Autos, motos y discapacitados/embarazadas frecuentes que ingresan al parqueo\n";
+        cout << "Ingrese la placa que desea verificar:\n";
+        cin >> placas;
+        cout << "El numero de veces que ingreso esta placa es:\n";
         frecuentes(placas,nombreArchivo);
         cout << "\nDesea continuar o desea salir" << endl;
         cout << "Seleccione 1 para continuar y 0 para salir:";
@@ -150,6 +153,7 @@ void MenuAdministrador()
         }
         break;
         case 5:
+        Limpiar();
         AgregandoPlacasArchivo(nombreArchivo);
         cout << "\nDesea continuar o desea salir" << endl;
         cout << "Seleccione 1 para continuar y 0 para salir:";
@@ -169,11 +173,13 @@ void MenuAdministrador()
         break;
 
     case 6:
+        Limpiar();
         cout << "-------------------------------------\n";
         cout << endl;
         return MenuPrincipal();
         break;
     case 7:
+        Limpiar();
         cout << "Imprimir contenido de un archivo"<<endl;
         cout << "Que nombre de archivo desea imprimir:";
         cin >> archivo;
@@ -217,6 +223,7 @@ void MenuUsuario()
     switch (opcion)
     {
     case 1:
+        Limpiar();
         cout << "Su tiquete:\n";
         Tiquete();
         cout << "\nDesea continuar o desea salir" << endl;
@@ -311,7 +318,7 @@ void Tiquete()
     double totalPagar;
 
     // Solicitar los datos al usuario
-    cout << "Ingrese el número de placa: ";
+    cout << "Ingrese el numero de placa: ";
     cin >> numeroPlaca;
     cout << "Ingrese el tiempo transcurrido en horas: ";
     cin >> tiempoTranscurrido;
