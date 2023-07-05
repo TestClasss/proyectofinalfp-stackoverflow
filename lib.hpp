@@ -26,4 +26,6 @@ void ParqueosDisponiblesYnoDisponibles(string nombreArchivo);
 void ParqueosDisponibles(string nombreArchivo);
 void frecuentes(string placas, string nombreArchivo);
 void Bloqueados();
+#ifndef Lib_h
+#define Lib_h
 #endif 
